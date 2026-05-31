@@ -5,6 +5,7 @@ filetype on                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Eliot00/git-lens.vim'
 Plugin 'fatih/vim-go'
@@ -21,18 +22,23 @@ packadd lsp
 call LspAddServer([#{
 \   name: 'typescriptlang',
 \   filetype: ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
-\   path: '/usr/local/bin/typescript-language-server',
+\   path: '/home/james/.nvm/versions/node/v24.16.0/bin/typescript-language-server',
 \   args: ['--stdio'],
 \  }])
 
+
+" Golang language server
+" https://go.dev/gopls
 call LspAddServer([#{
 \   name: 'gopls',
 \   filetype: ['go', 'gomod'],
-\   path: '/Users/jamespirie/go/bin/gopls',
+\   path: '/home/james/go/bin/gopls',
 \   args: ['serve'],
 \    syncInit: v:true
 \  }])
 
+" C/C++ language Server
+" https://clangd.llvm.org
 call LspAddServer([#{
 \   name: 'clangd',
 \   filetype: ['c'],
